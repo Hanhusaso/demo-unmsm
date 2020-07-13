@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title%></title>
+
+    <%- include ('components/head.html')%>
+
+</head>
+
+<body>
+
+    <%- include ('components/navigation.html') %>
+
+    <main>
+        <div class="container">
+            <section>
+                <div>
+                    <img class="w-100 my-5" src="/img/membreteguinda.png" alt="unmsm">
+                </div>
+            </section>
+            <section>
+                <div id="noticias">
+                    <div>
+                        <p>Noticias</p>
+                        <div id="cont_noticias"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        var cont_noticias = document.querySelector('#cont_noticias')
+        function get_news() {
+            fetch('https://node-noticias-2020.herokuapp.com/inventario/api/v1/noticia')
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data)
+                    createCardsNews(data)
+                })
+        }
+        function createCardsNews(data) {
+            console.log(data.noticias)
+            cont_noticias.innerHTML = ''
+            for (let valor of data.noticias) {
+                // console.log(valor)
+                cont_noticias.innerHTML += `
+                    <div class="card">
+                        <img class="card-img-top" src="/img/noticias/${ valor.imagen }" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">${ valor.titulo }</h5>
+                            <p class="card-text">${ valor.descripcion }</p>
+                        </div>
+                    </div>
+                `
+            }
+        }
+        get_news()
+    </script>
+
+    <%- include ('components/footer.html')%>
+
+</body>
+
+</html>

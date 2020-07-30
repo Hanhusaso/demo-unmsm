@@ -1,0 +1,36 @@
+// GENERAL HEADER
+
+header {
+    a {
+        color: #fff;
+    }
+    .ul-nav {
+        display: inline-block;
+        li {
+            display: inline-block;
+            padding: 0px 5px;
+        }
+    }
+    > div {
+        &:first-child {
+            background-color: $color-negro-sm;
+            color: #fff;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            > div {
+                &:first-child {
+                    display: flex;
+                    justify-content: center;
+                    > span {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+        &:nth-child(2) {
+            background-color: $color-rojo-sm;
+            display: grid;
+            grid-template-columns: auto 1fr;
+        }
+    }
+}

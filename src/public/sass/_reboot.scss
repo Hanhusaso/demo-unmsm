@@ -1,0 +1,12 @@
+a {
+    color: #70191c;
+    &:hover {
+        color: #96373a;
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

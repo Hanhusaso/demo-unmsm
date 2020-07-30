@@ -10,56 +10,133 @@
 
 </head>
 
-<body>
+<body id="<%= name%>">
 
     <%- include ('components/navigation.html') %>
 
-    <main>
-        <div class="container">
+    <main role="main">
+
+        <!-- Section carousel -->
+        <section></section>
+
+        <!-- Section link pages -->
+        <section>
+            <ul>
+                <li>
+                    <a href="" onclick="return false">
+                        <i class="fas fa-book"></i>
+                        <span>Biblioteca</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" onclick="return false">
+                        <i class="fas fa-university"></i>
+                        <span>Museos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" onclick="return false">
+                        <i class="fas fa-laptop"></i>
+                        <span>Centro de informática</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" onclick="return false">
+                        <i class="far fa-building"></i>
+                        <span>Institutos de investigación</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" onclick="return false">
+                        <i class="fas fa-theater-masks"></i>
+                        <span>Centro cultural</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" onclick="return false">
+                        <i class="fas fa-language"></i>
+                        <span>Centro de idiomas</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section news & schedule -->
+        <section>
+
+            <!-- Section news -->
+            <section id="news">
+                <div>
+                    <h2>Noticias</h2>
+                    <div id="cont-noticias"></div>
+                </div>
+                <div></div>
+            </section>
+
+            <!-- Section schedule -->
             <section>
                 <div>
-                    <img class="w-100 my-5" src="/img/membreteguinda.png" alt="unmsm">
+                    <h2>Agenda</h2>
                 </div>
+                <div></div>
             </section>
-            <section>
-                <div id="noticias">
-                    <div>
-                        <h2 class="title title-noticias">Noticias</h2>
-                        <div id="cont_noticias"></div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
+        </section>
 
-    <script>
-        var cont_noticias = document.querySelector('#cont_noticias')
-        function get_news() {
-            fetch('https://node-noticias-2020.herokuapp.com/inventario/api/v1/noticia')
-                .then(res => res.json())
-                .then(data => {
-                    // console.log(data)
-                    createCardsNews(data)
-                })
-        }
-        function createCardsNews(data) {
-            console.log(data.noticias)
-            cont_noticias.innerHTML = ''
-            for (let valor of data.noticias) {
-                // console.log(valor)
-                cont_noticias.innerHTML += `
-                    <div class="card">
-                        <img class="card-img-top" src="${ valor.imagen }" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">${ valor.titulo }</h5>
-                            <p class="card-text">${ valor.descripcion }</p>
-                        </div>
-                    </div>
-                `
-            }
-        }
-        get_news()
-    </script>
+        <!-- Section faculties -->
+        <section>
+            <div>
+                <h2>Facultades</h2>
+            </div>
+            <div>
+                <div>
+                    <img src="" alt="Ciencias de la salud">
+                    <div>Ciencias de la salud</div>
+                </div>
+                <div>
+                    <img src="" alt="Ciencias básicas">
+                    <div>Ciencias básicas</div>
+                </div>
+                <div>
+                    <img src="" alt="Ingenierías">
+                    <div>Ingenierías</div>
+                </div>
+                <div>
+                    <img src="" alt="Letras y ciencias humanas">
+                    <div>Letras y ciencias humanas</div>
+                </div>
+                <div>
+                    <img src="" alt="Ciencias administrativas y económicas">
+                    <div>Ciencias administrativas y económicas</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section publication -->
+        <section>
+            <div>
+                <h2>Publicaciones</h2>
+            </div>
+            <div></div>
+        </section>
+
+        <!-- Section comunity -->
+        <section>
+            <div>
+                <h2>La comunidad sanmarquina nos cuenta</h2>
+            </div>
+            <div></div>
+        </section>
+
+        <!-- Section data -->
+        <section>
+            <div>
+                <h2>La universidad en números</h2>
+            </div>
+            <p>Coloca el cursor sobre las tarjetas para descubrir las respuestas</p>
+            <div></div>
+        </section>
+
+    </main>
 
     <%- include ('components/footer.html')%>
 

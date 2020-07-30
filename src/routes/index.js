@@ -10,13 +10,20 @@ var pool = mysql.createPool({
 });
 
 router.get('/', (req,res) => {
-    res.render('index.html', { title: 'UNMSM home demo' });
+    res.render('index.html', {
+        title: 'UNMSM home demo',
+        name: 'home'
+    });
 });
 
-router.get('/contact', (req,res) => {
-    res.render('contact.html', { title: 'UNMSM constact demo' });
+router.get('/prueba', (req,res) => {
+    res.render('prueba.html', {
+        title: 'UNMSM prueba demo',
+        name: 'prueba'
+    });
 });
 
+// test query
 router.get('/query', (req,res) => {
     
     pool.getConnection(function(err, connection){
